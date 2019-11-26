@@ -38,10 +38,13 @@ def getDatafromFiles():
     # chart 5
     passRetrivedTotal = file1.iloc[3:4,3:].rename(columns={"Unnamed: 3": "name", "Unnamed: 4": "value"}).to_json(orient='records')
 
-    RequestTicketAverage = pd.read_excel(r'static/RequestTicketAverage.xlsx')
-    RequestTimeAverage = pd.read_excel(r'static/RequestTimeAverage.xlsx')
+    # Chart 6
+    RequestTimeAveragedf = pd.read_excel(r'static/RequestTimeAverage.xlsx')
+    RequestTimeAverage = RequestTimeAveragedf.iloc[:3,:2].to_json(orient='records')
+    # Chart 7
+    RequestTicketAverage = RequestTimeAveragedf.iloc[6:8,:2].to_json(orient='records')
     # passRetrived = pd.read_excel(r'static/passRetrived.xlsx')
     # passRetrivedAllvalues = passRetrived.iloc[:-1].to_json(orient='records')
     # passRetrivedTotal = passRetrived.iloc[-1].to_json()
     return ObjectAndAccounts,LicenseAndSales,df_per.to_json(orient='records'),\
-           RequestTicketAverage.to_json(orient='records'),RequestTimeAverage.to_json(orient='records'),passRetrivedAllvalues,passRetrivedTotal
+           RequestTicketAverage,RequestTimeAverage,passRetrivedAllvalues,passRetrivedTotal

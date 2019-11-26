@@ -192,12 +192,20 @@
       x.domain(data.map(function (d) { return d.name; }));
       y.domain([0, d3.max(data, function (d) { return d.value; })]);
 
+
+if(divId == "RequestTicketsAverages"){
+      svg.append("text")
+        .attr("class", "title")
+        .attr("x", -x(data[0].name)*4 +5)
+        .attr("y", -26)
+        .text(header);
+}else{
       svg.append("text")
         .attr("class", "title")
         .attr("x", x(data[0].name))
         .attr("y", -26)
         .text(header);
-
+		}
       svg.append("g")
         .attr("class", "x axis")
         .attr("transform", "translate(0," + height + ")")
@@ -300,7 +308,7 @@
     BulidBarchart(passRetrivedAllvalues, "PassRetrivedLast7Days", "Pass Retrived Last 7 Days", 250, 300, ['#1780ad', '#1780ad'])
     BulidBarchart(passRetrivedTotal, "PassRetrivedLastTotal", "", 170, 300, ['#1780ad', '#1780ad'])
 
-    BulidBarchart(RequestTimeAverages, "RequestTimeAverages", "Request Time Averages", 250, 300, ['#1780ad', '#1780ad'])
+    BulidBarchart(RequestTimeAverages, "RequestTimeAverages", "Request Time Averages", 300, 300, ['#1780ad', '#1780ad'])
     BulidBarchart(RequestTicketsAverages, "RequestTicketsAverages", "Request Tickets Averages", 220, 300, ['#1780ad', '#1780ad'])
 
     BulidBarchart(p1p2, "p1p2", "P1's & P2's", 220, 300, ['#1780ad', '#1780ad'])
