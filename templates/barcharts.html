@@ -4,9 +4,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="static/css/bootstrap.min.css">
+  <script src="static/js/jquery.min.js"></script>
+  <script src="static/js/bootstrap.min.js"></script>
   <style>
     .title {
       font: bold 14px "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -158,7 +158,7 @@
   </div>
 
 
-  <script type="text/javascript" src="http://d3js.org/d3.v3.min.js"></script>
+  <script type="text/javascript" src="static/js/d3.v3.min.js"></script>
 
   <script>
     function BulidBarchart(data, divId, header, width, height, color) {
@@ -243,7 +243,7 @@ if(divId == "RequestTicketsAverages"){
         .attr("x", (function (d) { return x(d.name) + x.rangeBand() / 4; }))
         .attr("y", function (d) { return y(d.value) + 1; })
         .attr("dy", "-.75em")
-        .text(function (d) { return d.value; })
+        .text(function (d) { if(isFloat(d.value)){ return d3.format('.2f')(d.value); }else{return d.value;} })
       if (divId == "WindowsAndDomainAdmin") {
         
         svg.selectAll(".text")
@@ -257,6 +257,9 @@ if(divId == "RequestTicketsAverages"){
           .attr("dy", "-.75em")
           .text(function (d,i) {if (i % 2) {  return d3.format(".2s")(d.percentages*100)+"%";} else { return ""; } });
       }
+	  function isFloat(n){
+			return Number(n) === n && n % 1 !== 0;
+	  }
       function wrap(text, width) {
         text.each(function () {
           var text = d3.select(this),
@@ -290,8 +293,8 @@ if(divId == "RequestTicketsAverages"){
     var license = [{ "name": "# Licenses", "value": 2200 }, { "name": "Licensed", "value": 2135 }, { "name": "#People who have access to Vault", "value": 4120 }, { "name": "# Sales", "value": 3540 }];
     var p1p2 = [{ "name": "P1's Last 18 Months", "value": 2 }, { "name": "P1's Last 30 Days", "value": 0 }, { "name": "P2's Last 18 Months", "value": 1 }, { "name": "P2's Last 30 Days", "value": 0 }];
 
-    var two_color = ['#1780ad', '#b9c653'] //blue, gray
-    var one_color = ['#1780ad', '#1780ad'] // blue , blue
+    var two_color = ['#0693f7', '#d2fb30'] //blue, gray
+    var one_color = ['#0693f7', '#0693f7'] // blue , blue
 
     var ObjectAndAccounts = {{ ObjectAndAccounts| safe }};
     var LicenseAndSales = {{ LicenseAndSales| safe }};
@@ -304,7 +307,7 @@ if(divId == "RequestTicketsAverages"){
     BulidBarchart(ObjectAndAccounts, "ObjectAndAccounts", "Object & Accounts", 250, 300, two_color)
     BulidBarchart(LicenseAndSales, "ObjectAndAccountsLicense", " ", 300, 300, two_color)
 
-    BulidBarchart(WindowsAndDomainAdmin, "WindowsAndDomainAdmin", "Windows & Domain Admin", 500, 300, two_color)
+    BulidBarchart(WindowsAndDomainAdmin, "WindowsAndDomainAdmin", "Windows & Domain Admin", 510, 300, two_color)
 
     BulidBarchart(passRetrivedAllvalues, "PassRetrivedLast7Days", "Pass Retrived Last 7 Days", 250, 300,one_color)
     BulidBarchart(passRetrivedTotal, "PassRetrivedLastTotal", "", 170, 300,one_color)
@@ -312,7 +315,7 @@ if(divId == "RequestTicketsAverages"){
     BulidBarchart(RequestTimeAverages, "RequestTimeAverages", "Request Time Averages", 300, 300,one_color)
     BulidBarchart(RequestTicketsAverages, "RequestTicketsAverages", "Request Tickets Averages", 220, 300,one_color)
 
-    BulidBarchart(p1p2, "p1p2", "P1's & P2's", 220, 300,one_color)
+    BulidBarchart(p1p2, "p1p2", "P1's & P2's", 250, 300,one_color)
 
 
   </script>
