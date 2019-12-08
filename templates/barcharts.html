@@ -27,94 +27,82 @@
       display: none;
     }
 
-    < !-- grid css -->* {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+	/* Add some padding on document's body to prevent the content
+    to go underneath the header and footer */
+    body{        
+        padding-top: 60px;
+        padding-bottom: 40px;
+		background-image: url("static\\images\\background.jpg");
+		background-color: #cccccc;
+	}
+
+    .fixed-header, .fixed-footer{
+        width: 100%;
+        position: fixed;        
+        background: #333;
+        padding: 10px 0;
+        color: #fff;
+		z-index: 1;
     }
-
-    *:before,
-    *:after {
-      box-sizing: border-box;
+    .fixed-header{
+        top: 0;
     }
-
-    .grid {
-      margin: 2rem auto;
+    .fixed-footer{
+        bottom: 0;
+    }    
+    /* Some more styles to beutify this example */
+    nav a{
+        color: #fff;
+        text-decoration: none;
+        padding: 7px 25px;
+        display: inline-block;
     }
-
-    .grid__container {
-      display: grid;
-      background-color: #000;
-      border: 1px solid #000;
-      grid-gap: 1px;
-      justify-self: center;
-      max-width: 50%;
-      height: auto;
-      margin: 0 auto;
-    }
-
-    .grid__item {
-      position: relative;
-      background: #fff
-    }
-
-    .grid__item:hover .grid__img::after {
-      content: '';
-      display: block;
-      position: absolute;
-      border: 1px solid #ff4b4c;
-      left: -11px;
-      right: -11px;
-      bottom: -11px;
-      top: -11px;
-    }
-
-    .grid__img {
-      position: relative;
-      pointer-events: none;
-      border: 10px solid #fff;
-      background-color: #fff;
-    }
-
-    @media only screen and (min-width: 768px) {
-      .grid__container {
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: repeat(4, 1fr);
-        max-width: 583px;
-      }
-    }
-
-    @media only screen and (min-width: 1024px) {
-
-      .grid__container {
-        grid-template-columns: repeat(3, 1fr);
-        grid-template-rows: repeat(2, 1fr);
-        max-width: 90%;
-      }
+    .container p{
+        line-height: 200px; /* Create scrollbar to test positioning */
     }
   </style>
 </head>
 
 
 <body>
+    <div class="fixed-header">
+        <div class="container">
+            <nav>
+                <a href="#">Home</a>
+                <a href="#">About</a>
+                <a href="#">Products</a>
+                <a href="#">Services</a>
+                <a href="#">Contact Us</a>
+            </nav>
+        </div>
+    </div>
 
 
-  <div class="container" style="margin-top: 25px;">
+  <div class="container" style="margin-top: 25px;margin-bottom: 25px;">
     <div class="row">
-      <div class="col-sm-2"
+      <div class="col-sm-3"
         style="border-top: 1px solid #000;border-left: 1px solid #000;border-bottom: 1px solid #000;">
         <div id="ObjectAndAccounts"></div>
       </div>
-      <div class="col-sm-3"
+      <div class="col-sm-4"
         style="border-top: 1px solid #000;border-right: 1px solid #000;border-bottom: 1px solid #000;">
         <div id="ObjectAndAccountsLicense"></div>
       </div>
-      <div class="col-sm-5"
-        style="border-top: 1px solid #000;border-right: 1px solid #000;border-bottom: 1px solid #000;">
+      <div class="col-sm-3" style="border-top: 1px solid #000;border-bottom: 1px solid #000;">
+        <div id="PassRetrivedLast7Days"></div>
+      </div>
+	  <div class="col-sm-2" style="border-top: 1px solid #000;border-right: 1px solid #000;border-bottom: 1px solid #000;">
+        <div id="PassRetrivedLastTotal"></div>
+      </div>
+    </div>
+	
+	<div class="row">
+	   <div class="col-sm-9"
+        style="border-left: 1px solid #000;border-right: 1px solid #000;border-bottom: 1px solid #000;">
         <div id="WindowsAndDomainAdmin"></div>
       </div>
-      <div class="col-sm-2"
-        style="border-top: 1px solid #000;border-right: 1px solid #000;border-bottom: 1px solid #000;height: 307.6px;">
+      <div class="col-sm-3"
+        style="border-right: 1px solid #000;border-bottom: 1px solid #000;height: 306.6px;">
         </br>
         <h4>Supplemental Metrics</h4>
         </br>
@@ -123,23 +111,17 @@
         <h4><span style="color: #00a2e8;">1 Day 14 Hours 44 Min(YTD)</span></h4>
         </br>
         <h4>Cycle Time:<span style="color: #00a2e8;"> 10.73</span></h4>
-      </div>
-    </div>
+      </div>	
+	</div>
 
     <div class="row">
-      <div class="col-sm-2" style="border-left: 1px solid #000;border-bottom: 1px solid #000;">
-        <div id="PassRetrivedLast7Days"></div>
-      </div>
-      <div class="col-sm-2" style="border-right: 1px solid #000;border-bottom: 1px solid #000;">
-        <div id="PassRetrivedLastTotal"></div>
-      </div>
-      <div class="col-sm-3" style="border-right: 1px solid #000;border-bottom: 1px solid #000;">
+      <div class="col-sm-4" style="border-left: 1px solid #000;border-right: 1px solid #000;border-bottom: 1px solid #000;">
         <div id="RequestTimeAverages"></div>
       </div>
-      <div class="col-sm-2" style="border-right: 1px solid #000;border-bottom: 1px solid #000;">
+      <div class="col-sm-3" style="border-right: 1px solid #000;border-bottom: 1px solid #000;">
         <div id="RequestTicketsAverages"></div>
       </div>
-      <div class="col-sm-2" style="border-bottom: 1px solid #000;">
+      <div class="col-sm-4" style="border-bottom: 1px solid #000;">
         <div id="p1p2"></div>
       </div>
       <div class="col-sm-1" style="border-right: 1px solid #000;border-bottom: 1px solid #000;height: 306.6px;">
@@ -157,7 +139,9 @@
 
   </div>
 
-
+    <div class="fixed-footer">
+        <div class="container">Copyright &copy; 2016 Your Company</div>        
+    </div>
   <script type="text/javascript" src="static/js/d3.v3.min.js"></script>
 
   <script>
@@ -169,7 +153,7 @@
 
 
       var x = d3.scale.ordinal()
-        .rangeRoundBands([0, width], .1, .3);
+        .rangeRoundBands([0, width], .5, .3);
 
       var y = d3.scale.linear()
         .range([height, 0]);
@@ -192,20 +176,12 @@
       x.domain(data.map(function (d) { return d.name; }));
       y.domain([0, d3.max(data, function (d) { return d.value; })]);
 
-
-if(divId == "RequestTicketsAverages"){
-      svg.append("text")
-        .attr("class", "title")
-        .attr("x", -x(data[0].name)*4 +5)
-        .attr("y", -26)
-        .text(header);
-}else{
       svg.append("text")
         .attr("class", "title")
         .attr("x", x(data[0].name))
         .attr("y", -26)
         .text(header);
-		}
+		
       svg.append("g")
         .attr("class", "x axis")
         .attr("transform", "translate(0," + height + ")")
@@ -304,18 +280,20 @@ if(divId == "RequestTicketsAverages"){
     var passRetrivedAllvalues = {{ passRetrivedAllvalues| safe }};
     var passRetrivedTotal = {{ passRetrivedTotal| safe }};
 
-    BulidBarchart(ObjectAndAccounts, "ObjectAndAccounts", "Object & Accounts", 250, 300, two_color)
-    BulidBarchart(LicenseAndSales, "ObjectAndAccountsLicense", " ", 300, 300, two_color)
+    BulidBarchart(ObjectAndAccounts, "ObjectAndAccounts", "Object & Accounts", 300, 300, two_color)
+    BulidBarchart(LicenseAndSales, "ObjectAndAccountsLicense", " ", 400, 300, two_color)
+	
+	BulidBarchart(passRetrivedAllvalues, "PassRetrivedLast7Days", "Pass Retrived Last 7 Days", 340, 300,one_color)
+    BulidBarchart(passRetrivedTotal, "PassRetrivedLastTotal", "", 200, 300,one_color)
 
-    BulidBarchart(WindowsAndDomainAdmin, "WindowsAndDomainAdmin", "Windows & Domain Admin", 510, 300, two_color)
+    BulidBarchart(WindowsAndDomainAdmin, "WindowsAndDomainAdmin", "Windows & Domain Admin", 900, 300, two_color)
 
-    BulidBarchart(passRetrivedAllvalues, "PassRetrivedLast7Days", "Pass Retrived Last 7 Days", 250, 300,one_color)
-    BulidBarchart(passRetrivedTotal, "PassRetrivedLastTotal", "", 170, 300,one_color)
 
-    BulidBarchart(RequestTimeAverages, "RequestTimeAverages", "Request Time Averages", 300, 300,one_color)
-    BulidBarchart(RequestTicketsAverages, "RequestTicketsAverages", "Request Tickets Averages", 220, 300,one_color)
 
-    BulidBarchart(p1p2, "p1p2", "P1's & P2's", 250, 300,one_color)
+    BulidBarchart(RequestTimeAverages, "RequestTimeAverages", "Request Time Averages", 370, 300,one_color)
+    BulidBarchart(RequestTicketsAverages, "RequestTicketsAverages", "Request Tickets Averages", 300, 300,one_color)
+
+    BulidBarchart(p1p2, "p1p2", "P1's & P2's", 420, 300,one_color)
 
 
   </script>
