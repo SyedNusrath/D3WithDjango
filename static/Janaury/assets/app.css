@@ -1,0 +1,30 @@
+.red-color{
+    color: red ;
+}
+.green-color{
+    color: green;
+}
+.yellow-color{
+    color: yellow;
+}
+.red{
+    background-color: red ;
+}
+.green{
+    background-color: green;
+}
+.yellow{
+    background-color: yellow;
+}
+.table{
+    font-weight: 600;
+}
+.thead{
+    background-color: #052e52;color: #FFF;
+}
+.no-margin{
+    margin: 10px;
+}
+.small-tbody{
+    font-size: 12px;
+}

@@ -1,0 +1,160 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+
+    <style>
+        .title {
+            font: bold 14px "Helvetica Neue", Helvetica, Arial, sans-serif;
+          }
+      
+          .axis {
+            font: 10px sans-serif;
+          }
+      
+          .axis path,
+          .axis line {
+            fill: none;
+            stroke: #000;
+            shape-rendering: crispEdges;
+          }
+      
+          .x.axis path {
+            display: none;
+          }
+      
+    </style>
+</head>
+
+<body>
+    <div class="col-sm-4">
+    <div id="ObjectAndAccountsLicense"></div>
+  </div>
+
+    <script type="text/javascript" src="../../static/js/d3.v3.min.js"></script>
+
+    <script>
+      function BulidBarchart(data, divId, header, width, height, color) {
+  
+        var margin = { top: 50, right: 50, bottom: 50, left: 50 },
+          width = width - margin.left - margin.right,
+          height = height - margin.top - margin.bottom;
+  
+  
+        var x = d3.scale.ordinal()
+          .rangeRoundBands([0, width], .5, .3);
+  
+        var y = d3.scale.linear()
+          .range([height, 0]);
+  
+        var xAxis = d3.svg.axis()
+          .scale(x)
+          .orient("bottom");
+  
+        var yAxis = d3.svg.axis()
+          .scale(y)
+          .orient("left")
+          .ticks(8);
+  
+        var svg = d3.select("#" + divId).append("svg")
+          .attr("width", width + margin.left + margin.right)
+          .attr("height", height + margin.top + margin.bottom)
+          .append("g")
+          .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+  
+        x.domain(data.map(function (d) { return d.name; }));
+        y.domain([0, d3.max(data, function (d) { return d.value; })]);
+  
+        svg.append("text")
+          .attr("class", "title")
+          .attr("x", x(data[0].name))
+          .attr("y", -26)
+          .text(header);
+          
+        svg.append("g")
+          .attr("class", "x axis")
+          .attr("transform", "translate(0," + height + ")")
+          .call(xAxis)
+          .selectAll(".tick text")
+          .call(wrap, x.rangeBand());
+
+        svg.selectAll(".bar")
+          .data(data)
+          .enter().append("rect")
+          .attr("class", "bar")
+          .attr("x", function (d) {
+  
+            return x(d.name);
+          })
+          .attr("width", x.rangeBand())
+          .attr("y", function (d) {
+  
+            return y(d.value);
+          })
+          .attr("height", function (d) { return height - y(d.value); })
+          .attr("fill", function (d) { return d.color;})
+          ;
+  
+        // Controls the text labels at the top of each bar. Partially repeated in the resize() function below for responsiveness.
+        svg.selectAll(".text")
+          .data(data)
+          .enter()
+          .append("text")
+          .attr("class", "label")
+          .attr("x", (function (d) { return x(d.name) + x.rangeBand() / 9; }))
+          .attr("y", function (d) { return y(d.value) + 1; })
+          .attr("dy", "-.75em")
+          .text(function (d) { return d.label;} )
+
+        function isFloat(n){
+              return Number(n) === n && n % 1 !== 0;
+        }
+        function wrap(text, width) {
+          text.each(function () {
+            var text = d3.select(this),
+              words = text.text().split(/\s+/).reverse(),
+              word,
+              line = [],
+              lineNumber = 0,
+              lineHeight = 1.1, // ems
+              y = text.attr("y"),
+              dy = parseFloat(text.attr("dy")),
+              tspan = text.text(null).append("tspan").attr("x", 0).attr("y", y).attr("dy", dy + "em");
+            while (word = words.pop()) {
+              line.push(word);
+              tspan.text(line.join(" "));
+              if (tspan.node().getComputedTextLength() > width) {
+                line.pop();
+                tspan.text(line.join(" "));
+                line = [word];
+                tspan = text.append("tspan").attr("x", 0).attr("y", y).attr("dy", ++lineNumber * lineHeight + dy + "em").text(word);
+              }
+            }
+          });
+        }
+  
+        function type(d) {
+          d.value = +d.value;
+          return d;
+        }
+      }
+  
+
+      //var license = [{ "name": "# Licenses", "value": 2200 }, { "name": "Licensed", "value": 2135 }, { "name": "#People who have access to Vault", "value": 4120 }, { "name": "# Sales", "value": 3540 }];
+      
+      var license = [ { "name":"Windows Domain Admins",  "value":100, "color": "#003f5c", "label":"100%"},
+            { "name":"Windows Local Admins", "value": 25, "color":"#003f5c", "label":"25%"},
+            { "name":"Unix Root",  "value":65, "color": "#003f5c", "label":"65%"},
+            { "name":"DBA",  "value":43, "color": "#003f5c", "label":"43%"},
+            { "name":"Mainframe",  "value":12, "color":"#003f5c", "label":"12%"}
+        ]
+
+      var two_color = ['#0693f7', '#d2fb30'] //blue, gray
+      var one_color = ['#0693f7', '#0693f7'] // blue , blue
+
+      BulidBarchart(license, "ObjectAndAccountsLicense", " ", 400, 300, two_color)
+      
+    </script>
+</body>
+
+</html>
