@@ -5,6 +5,32 @@
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/bar.css">
     <script src="assets/bar.js"></script>
+	
+	<style>
+
+
+.progress-bar-vertical {
+background-color: #cccccc;
+ border-radius: 0px;
+  width: 40px;
+  min-height: 170px;
+  display: flex;
+  align-items: flex-end;
+  margin-right: 20px;
+  float: left;
+}
+
+.progress-bar-vertical .progress-bar {
+  width: 100%;
+  height: 0;
+  -webkit-transition: height 0.6s ease;
+  -o-transition: height 0.6s ease;
+  transition: height 0.6s ease;
+}
+.progress-bar{
+background-color: #333333;
+}
+	</style>
 </head>
 
 <body>
@@ -15,32 +41,71 @@
                 </div>
             </div>
     <div class="row no-margin">
-        <div class="col-md-4">
-            <h3><strong><u></u>RISK-BASED TARGETS</u></strong></h3>
-            <div style="height: 300px; width: 80%;">
+        <div class="col-md-4" style="border-top: 1px solid;border-left: 1px solid;">
+            <h3><strong><u>RISK-BASED TARGETS</u></strong></h3>
+            <div>
                 <table class="table table-bordered table-striped">
                     <tbody class="small-tbody" id="chartContainer"></tbody>
                 </table>
             </div>
-            <h4><strong>RISK MATURITY MODEL<strong></h4>
+            <h4 class="text-center"><strong>RISK MATURITY MODEL</strong></h4>
         </div>
-        <div class="col-md-1">
-            <table class="table table-bordered table-striped">
-                <tbody class="small-tbody">
-                    <tr>
-                        <td class="percent"
-                            style="text-align: center; height:200px; background-color: #094f8c;background-size: 100% 75%;  background-repeat: no-repeat;background-image: linear-gradient(to bottom,#ccc, #ccc)">
-                            <span style="transform: rotate(90deg);">BEHAVIORAL ANALYTICS(25%)</span> </td>
-                    </tr>
+        <div class="col-md-1" style="border-top: 1px solid;">
+		<h3><strong>&nbsp;</strong></h3>
+            <!-- <table class="table table-bordered table-striped"> -->
+                <!-- <tbody class="small-tbody"> -->
+                    <!-- <tr> -->
+                        <!-- <td class="percent" -->
+                            <!-- style="text-align: center; height:200px; background-color: #094f8c;background-size: 100% 75%;  background-repeat: no-repeat;background-image: linear-gradient(to bottom,#ccc, #ccc)"> -->
+                            <!-- BEHAVIORAL ANALYTICS(25%)</td> -->
+                    <!-- </tr> -->
+                <!-- </tbody> -->
+            <!-- </table> -->
+			
+	<div class="progress progress-bar-vertical" style="width: 70px;">
+    <div class="progress-bar" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="height: 25%;">
+      <div  class="text-center" style="transform: rotate(270deg); padding-left: 4em;"><strong>BEHAVIORAL ANALYTICS(25%)</strong> </div>
+    </div>
+  </div>
+  
+        </div>
+        <div class="col-md-3" style="border-top: 1px solid;border-left: 1px solid;">
+		<h3><strong>&nbsp;</strong></h3>
+            <!-- <div id="AchivementsByPlatform"></div> -->
+			<div class="container">
 
-                </tbody>
-            </table>
+  <div class="progress progress-bar-vertical">
+    <div class="progress-bar" role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" style="height: 100%;">
+      <span>100%</span>
+    </div>
+  </div>
+  
+    <div class="progress progress-bar-vertical">
+    <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="height: 25%;">
+      <span>25%</span>
+    </div>
+  </div>
+
+  <div class="progress progress-bar-vertical">
+    <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="height: 65%;">
+      <span>65%</span>
+    </div>
+  </div>
+  <div class="progress progress-bar-vertical">
+    <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="height: 43%;">
+      <span>43%</span>
+    </div>
+  </div>
+  <div class="progress progress-bar-vertical">
+    <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="height: 12%;">
+      <span>12%</span>
+    </div>
+  </div>
+</div>
+
+            <h4 class="text-center"><strong>ACHIVEMENTS BY PLATFORM</strong></h4>
         </div>
-        <div class="col-md-4">
-            <div id="AchivementsByPlatform"></div>
-            <h4><strong>ACHIVEMENTS BY PLATFORM<strong></h4>
-        </div>
-        <div class="col-md-3 text-center">
+        <div class="col-md-4 text-center" style="border-top: 1px solid;border-right: 1px solid;border-left: 1px solid;">
             <h3><strong><u>Q3 2018 NOTES</u></strong></h3>
             <div class="row no-margin">
                 <div class="col-md-6">
@@ -80,8 +145,8 @@
             </div>
         </div>
     </div>
-    <div class="row no-margin">
-        <div class="col-md-5">
+    <div class="row no-margin" style="margin-top: -20px;">
+        <div class="col-md-5" style="border: 1px solid;">
             <h3><strong><u>OPERATIONAL & PERFORMANCE TARGETS</u></strong></h3>
             <table class="table table-bordered table-striped">
                 <thead>
@@ -91,7 +156,7 @@
                         <th>ACTUAL</th>
                     </tr>
                 </thead>
-                <tbody class="small-tbody">
+                <tbody class="small-tbody"  style="font-size: 14px; !important;">
                     <tr>
                         <td class="text-right">PASSWORD ROTATION FREQUENCY</td>
                         <td>90 DAYS</td>
@@ -129,9 +194,9 @@
                     </tr>
                 </tbody>
             </table>
-            <h3 class="text-center"><strong>OPERATIONAL STATS</strong></h3>
+            <h3 class="text-center" style="padding-top: 20px;"><strong>OPERATIONAL STATS</strong></h3>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-3" style="border-bottom: 1px solid;border-top: 1px solid;">
             <h3><strong>&nbsp;</strong></h3>
             <table class="table table-bordered table-striped">
                 <thead>
@@ -140,7 +205,7 @@
                         <th>VALUE</th>
                     </tr>
                 </thead>
-                <tbody class="small-tbody">
+                <tbody class="small-tbody" style="font-size: 10px; !important;">
                     <tr>
                         <td class="text-right">AVERAGE EXECUTION TIME</A></td>
                         <td class="green">18</td>
@@ -181,7 +246,7 @@
             </table>
             <h3 class="text-center"><strong>VAULT KPI</strong></h3>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4" style="border: 1px solid;">
             <h3><strong><u>PATCHES & UPGRADES</u></strong></h3>
             <table class="table table-bordered table-striped">
                 <thead>
@@ -191,7 +256,7 @@
                         <th>ETA</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody  style="font-size: 15px; !important;">
                     <tr>
                         <td>ALLOCATE RESOURCES(1PM, 2 VALUT ADMINS, 3 CYBERARK PS DAYS)</td>
                         <td class="green">GREEN</td>
@@ -224,12 +289,12 @@
     </div>
 
     <div class="fixed-footer" style="padding: 10px 0">
-            <div class="container">Copyright &copy; 2016 Your Company</div>        
+            <div class="container"><img src="../images/cyberark.png" alt="cyberark" width="120" height="30"></div>        
         </div>
 
     <script src="assets/jquery.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+    <!-- <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script> -->
     <script type="text/javascript" src="../../static/js/d3.v3.min.js"></script>
 </body>
 

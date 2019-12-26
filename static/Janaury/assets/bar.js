@@ -14,7 +14,7 @@ window.onload = function () {
             var color = barchartArray[i][2];
             var percentage = barchartArray[i][1] + "%";
             var percentageMinus = 100 - barchartArray[i][1] + "%";
-            tr = tr + '<tr><td class="percent" style="text-align: center;background-size: ' + percentage + ' 100%; background-repeat: no-repeat;background-image: linear-gradient(to right,' + color + ', ' + color + ')">' + barchartArray[i][3] + '</td></tr>';
+            tr = tr + '<tr><td class="percent" style="background-color: #cccccc;text-align: center;background-size: ' + percentage + ' 100%; background-repeat: no-repeat;background-image: linear-gradient(to right,' + color + ', ' + color + ')">' + barchartArray[i][3] + '</td></tr>';
 
         }
 
@@ -135,5 +135,5 @@ window.onload = function () {
     { "name": "Mainframe", "value": 12, "color": "#003f5c", "label": "12%" }
     ];
     riskbasecTargets();
-    BulidBarchart(achivementsByPlatformData, "AchivementsByPlatform", " ", 500, 300)
+    BulidBarchart(achivementsByPlatformData, "AchivementsByPlatform", " ", 500, 250)
 }
