@@ -1,0 +1,83 @@
+﻿[
+	{
+		"name": "Total Objects",
+		"value": "130399",
+		"": ""
+	},
+	{
+		"name": "Failed Objects",
+		"value": "61937",
+		"": ""
+	},
+	{
+		"name": "Failed Objects Percentages",
+		"value": "53.60%",
+		"": "978"
+	},
+	{
+		"name": "Managed Objects",
+		"value": "53619",
+		"": "260884"
+	},
+	{
+		"name": "Unmanaged Objects",
+		"value": "14843",
+		"": ""
+	},
+	{
+		"name": "Passwords Pulled in the last 7 days",
+		"value": "2032",
+		"": ""
+	},
+	{
+		"name": "Unique Users who pulled passwords in the last 7 Days ",
+		"value": "368",
+		"": ""
+	},
+	{
+		"name": "License Count X of 2200",
+		"value": "2161",
+		"": ""
+	},
+	{
+		"name": "Percentage of License in Use",
+		"value": "98.23%",
+		"": ""
+	},
+	{
+		"name": "Number of people whom have access to password vault ",
+		"value": "4060",
+		"": ""
+	},
+	{
+		"name": "License Count Over/Under number of People with access",
+		"value": "1860",
+		"": ""
+	},
+	{
+		"name": "Windows local server Account",
+		"value": "5805",
+		"": ""
+	},
+	{
+		"name": "Windows local server Account Failures",
+		"value": "1344",
+		"": ""
+	},
+	{
+		"name": "Windows local server Account Managed",
+		"value": "3985",
+		"": ""
+	},
+	{
+		"name": "Windows local server Account Unmanaged",
+		"value": "476"
+	},
+	{
+		"name": "Windows local server Account",
+		"value": ""
+	},
+	{
+		"name": ""
+	}
+]

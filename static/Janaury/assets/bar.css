@@ -1,0 +1,96 @@
+.red-color{
+    color: red ;
+}
+.green-color{
+    color: green;
+}
+.yellow-color{
+    color: yellow;
+}
+.red{
+    background-color: red ;
+}
+.green{
+    background-color: green;
+}
+.yellow{
+    background-color: yellow;
+}
+.table{
+    font-weight: 600;
+}
+.thead{
+    background-color: #052e52;color: #FFF;
+}
+.no-margin{
+    margin: 20px;
+}
+.small-tbody{
+    font-size: 17px;
+}
+* {
+    box-sizing: border-box;
+}
+/* table {
+    table-layout: fixed;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-collapse: collapse;
+} */
+th, td {
+    border: 1px solid #fff !important ;
+    border-collapse: collapse;
+    padding: 4px;
+}
+.title {
+    font: bold 14px "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
+
+  .axis {
+    font: 10px sans-serif;
+  }
+
+  .axis path,
+  .axis line {
+    fill: none;
+    stroke: #000;
+    shape-rendering: crispEdges;
+  }
+
+  .x.axis path {
+    display: none;
+  }
+
+  	/* Add some padding on document's body to prevent the content
+    to go underneath the header and footer */
+    body{        
+        padding-top: 60px;
+        padding-bottom: 40px;
+		    overflow-x: hidden;
+
+	}
+
+    .fixed-header, .fixed-footer{
+        width: 100%;
+        position: fixed;        
+        background: #333;
+        /* padding: 10px 0; */
+        color: #fff;
+		z-index: 1;
+    }
+    .fixed-header{
+        top: 0;
+    }
+    .fixed-footer{
+        bottom: 0;
+    }    
+    /* Some more styles to beutify this example */
+    nav a{
+        color: #fff;
+        text-decoration: none;
+        padding: 7px 25px;
+        display: inline-block;
+    }
+    .container p{
+        line-height: 200px; /* Create scrollbar to test positioning */
+    }
