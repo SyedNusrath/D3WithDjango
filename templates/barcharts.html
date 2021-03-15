@@ -296,7 +296,7 @@
         .attr("dy", "-.75em")
         .text(function (d) { if(isFloat(d.value)){ return d3.format('.2f')(d.value); }else{return d.value;} })
 
-      if (divId == "WindowsAndDomainAdmin") {
+      // if (divId == "WindowsAndDomainAdmin") {
         svg.selectAll(".text")
           .data(data)
           .enter()
@@ -307,7 +307,7 @@
           .attr("y", function (d) { return y(d.value) - 15; })
           .attr("dy", "-.75em")
           .text(function (d,i) {if (i % 2) {  return d3.format(".2s")(d.percentages*100)+"%";} else { return ""; } });
-      }
+      // }
 
     	  function isFloat(n){
     			return Number(n) === n && n % 1 !== 0;
@@ -346,19 +346,18 @@
     var one_color = ['#0693f7', '#0693f7'] // blue , blue
 
     var ObjectAndAccounts = {{ ObjectAndAccounts| safe }};
-    var LicenseAndSales = {{ LicenseAndSales| safe }};
+    var ObjectAndAccounts2 = {{ ObjectAndAccounts2| safe }};
+    var ObjectAndAccounts3 = {{ ObjectAndAccounts3| safe }};
     var WindowsAndDomainAdmin = {{ WindowsAndDomainAdmin| safe }};
     var RequestTimeAverages = {{ RequestTimeAverage| safe }};
     var RequestTicketsAverages = {{ RequestTicketAverage| safe }};
-    var passRetrivedAllvalues = {{ passRetrivedAllvalues| safe }};
-    var passRetrivedTotal = {{ passRetrivedTotal| safe }};
 
     BulidBarchart(ObjectAndAccounts, "ObjectAndAccounts", 200, 300, two_color)
-    BulidBarchart(ObjectAndAccounts, "ObjectAndAccounts1", 200, 300, two_color)
-    BulidBarchart(ObjectAndAccounts, "ObjectAndAccounts2", 200, 300, two_color)
+    BulidBarchart(ObjectAndAccounts2, "ObjectAndAccounts1", 200, 300, two_color)
+    BulidBarchart(ObjectAndAccounts3, "ObjectAndAccounts2", 200, 300, two_color)
     BulidBarchart(WindowsAndDomainAdmin, "WindowsAndDomainAdmin", 900, 300, two_color)
-    BulidBarchart(RequestTimeAverages, "RequestTimeAverages", 600, 300,one_color)
-    BulidBarchart(RequestTicketsAverages, "RequestTicketsAverages", 300, 300,one_color)
+    BulidBarchart(RequestTimeAverages, "RequestTimeAverages", 600, 300,two_color)
+    BulidBarchart(RequestTicketsAverages, "RequestTicketsAverages", 300, 300,two_color)
 
   </script>
 
